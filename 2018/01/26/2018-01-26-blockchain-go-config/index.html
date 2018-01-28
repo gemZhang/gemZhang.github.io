@@ -54,22 +54,25 @@ src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
       
       
   <article class="markdown-body">
-    <h2 id="post-title">Hello World
+    <h2 id="post-title">Mac下go环境搭建
        
-        <div id="post-time" datetime="2018-01-28T01:58:46.035Z">
-          2018-01-28
+        <div id="post-time" datetime="2018-01-25T16:00:00.000Z">
+          2018-01-26
         </div>
       
     </h2>
-    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    <blockquote>
+<p>作者：gemzhang，区块链开发者、架构师。  </p>
+</blockquote>
+<h2 id="Go语言的优势："><a href="#Go语言的优势：" class="headerlink" title="Go语言的优势："></a>Go语言的优势：</h2><ul>
+<li>Go语言编译的程序可以媲美C或C++代码的速度，语法简洁，而且更加安全、支持并行进程。这些优势让很多人青睐，更适合区块链的开发。</li>
+</ul>
+<h2 id="Mac-OS-X中golang的开发环境配置"><a href="#Mac-OS-X中golang的开发环境配置" class="headerlink" title="Mac OS X中golang的开发环境配置"></a>Mac OS X中golang的开发环境配置</h2><ul>
+<li>1.下载安装包<br>官网地址：<a href="https://golang.org/dl/" target="_blank" rel="noopener">https://golang.org/dl/</a><br>需要fq ,点击下载pkg包，下载完后双击安装。<br><img src="https://note.youdao.com/yws/public/resource/54db4ed5313b814696c8562b10c1bcab/xmlnote/WEBRESOURCE50d0424adbb7f9ed02272f5878d5cf2b/177" alt="如下图"></li>
+<li>2检查<br>在终端输入命令：go version<br><img src="https://note.youdao.com/yws/public/resource/54db4ed5313b814696c8562b10c1bcab/xmlnote/WEBRESOURCE579b4a8302d8ff750297aa3257c1c5ba/179" alt="如下图">  </li>
+<li>3配置环境变量<br>1.在终端输入命令：cd $HOME 切换到根目录<br>2.执行命令：vim .bash_profile 打开文件<br>3.点开始编辑，GOPATH:日常开发的根目录。GOBIN:是GOPATH下的bin目录。<br><img src="https://note.youdao.com/yws/public/resource/54db4ed5313b814696c8562b10c1bcab/xmlnote/WEBRESOURCE5adc9fb8d28d8b2a6ded9d3c6da5dcfb/174" alt="如下图"> 根据自己的情况输入，esc退出，：wq保存<br>4.执行命令：source ~/.bash_profile 至此已经配置完成。  </li>
+<li>4测试<br>1.执行命令:vim text.go,然后输入<br><img src="https://note.youdao.com/yws/public/resource/54db4ed5313b814696c8562b10c1bcab/xmlnote/WEBRESOURCEace8a1e2803451fdbb615abe2f8a77d5/176" alt="如下图"><br>2.执行命令：go run test.go，打印hello world,配置成功</li>
+</ul>
 
   </article>
 
@@ -79,12 +82,12 @@ src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
       <div id="page-prev-next">
         
         
-          <div></div> 
+          <a id="page-prev-a" href="/2018/01/28/hello-world/"> ← Hello World </a>
         
 
         
         
-          <a id="page-next-a" href="/2018/01/26/2018-01-26-blockchain-go-config/"> Mac下go环境搭建 → </a>
+          <a id="page-next-a" href="/2018/01/26/2018-01-26-blockchain-security/"> Mac下GitHub从零到一 → </a>
         
       </div>
     
