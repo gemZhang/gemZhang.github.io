@@ -54,7 +54,7 @@ src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
       
       
   <article class="markdown-body">
-    <h2 id="post-title">Mac下go环境搭建
+    <h2 id="post-title">Mac下GitHub从零到一
        
         <div id="post-time" datetime="2018-01-25T16:00:00.000Z">
           2018-01-26
@@ -62,16 +62,25 @@ src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
       
     </h2>
     <blockquote>
-<p>作者：gemzhang，区块链开发者、架构师。  </p>
+<p>作者：gemzhang，区块链开发者、架构师。</p>
 </blockquote>
-<h2 id="Go语言的优势："><a href="#Go语言的优势：" class="headerlink" title="Go语言的优势："></a>Go语言的优势：</h2><ul>
-<li>Go语言编译的程序可以媲美C或C++代码的速度，语法简洁，而且更加安全、支持并行进程。这些优势让很多人青睐，更适合区块链的开发。</li>
+<h2 id="一、准备并配置"><a href="#一、准备并配置" class="headerlink" title="一、准备并配置"></a>一、准备并配置</h2><ul>
+<li><p>1.首先去GitHub官网注册账号</p>
+</li>
+<li><p>2.配置本地全局变量<br>git config –global user.email “you@example.com”<br>you@example.com是GitHub注册邮箱<br>git config –global user.name “Your Name”<br>Your Name是GitHub名字  </p>
+<h2 id="二、项目应用"><a href="#二、项目应用" class="headerlink" title="二、项目应用"></a>二、项目应用</h2></li>
+<li>1.点击右上角加号点击New repository创建仓库  </li>
 </ul>
-<h2 id="Mac-OS-X中golang的开发环境配置"><a href="#Mac-OS-X中golang的开发环境配置" class="headerlink" title="Mac OS X中golang的开发环境配置"></a>Mac OS X中golang的开发环境配置</h2><ul>
-<li>1.下载安装包<br>官网地址：<a href="https://golang.org/dl/" target="_blank" rel="noopener">https://golang.org/dl/</a><br>需要fq ,点击下载pkg包，下载完后双击安装。<br><img src="https://note.youdao.com/yws/public/resource/54db4ed5313b814696c8562b10c1bcab/xmlnote/WEBRESOURCE50d0424adbb7f9ed02272f5878d5cf2b/177" alt="如下图"></li>
-<li>2检查<br>在终端输入命令：go version<br><img src="https://note.youdao.com/yws/public/resource/54db4ed5313b814696c8562b10c1bcab/xmlnote/WEBRESOURCE579b4a8302d8ff750297aa3257c1c5ba/179" alt="如下图">  </li>
-<li>3配置环境变量<br>1.在终端输入命令：cd $HOME 切换到根目录<br>2.执行命令：vim .bash_profile 打开文件<br>3.点开始编辑，GOPATH:日常开发的根目录。GOBIN:是GOPATH下的bin目录。<br><img src="https://note.youdao.com/yws/public/resource/54db4ed5313b814696c8562b10c1bcab/xmlnote/WEBRESOURCE5adc9fb8d28d8b2a6ded9d3c6da5dcfb/174" alt="如下图"> 根据自己的情况输入，esc退出，：wq保存<br>4.执行命令：source ~/.bash_profile 至此已经配置完成。  </li>
-<li>4测试<br>1.执行命令:vim text.go,然后输入<br><img src="https://note.youdao.com/yws/public/resource/54db4ed5313b814696c8562b10c1bcab/xmlnote/WEBRESOURCEace8a1e2803451fdbb615abe2f8a77d5/176" alt="如下图"><br>2.执行命令：go run test.go，打印hello world,配置成功</li>
+<p><img src="https://note.youdao.com/yws/public/resource/54db4ed5313b814696c8562b10c1bcab/xmlnote/WEBRESOURCEb57124528565f7c2a4d0d948cf744a9e/56" alt="如下图"><br>  编辑项目名称<br>  – 项目描述<br>  – 权限：公开Public（谁都可以查看），私有Private（需要收费，仅限自己<br>  – Initialize this repository with a README 添加README，可以添加使用说明让别人了解该项目<br>  – .gitignore 添加忽略文件，根据编程语言筛选使用场景<br>  – Licenses 许可证，版权保护<br>  <img src="https://note.youdao.com/yws/public/resource/54db4ed5313b814696c8562b10c1bcab/xmlnote/WEBRESOURCEa22ba187e1f879f3badd51aacccb8ae1/102" alt="如下图"></p>
+<p>  – <strong>Settings(重点)</strong> 需要配置本地公钥才能对项目进行读写<br>  打开终端输入命令<br>  ssh-keygen -t rsa -C “you@example.com”<br>  you@example.com是GitHub注册邮箱<br>  输入电脑密码<br>  复制Your public key has been saved in 后边的地址，<strong>不加最后的点</strong><br>  <img src="https://note.youdao.com/yws/public/resource/54db4ed5313b814696c8562b10c1bcab/xmlnote/WEBRESOURCE53b7c33b5cbf4d2c6db1f49e1d4d0cf8/105" alt="如下图"></p>
+<p>  然后执行命令<br>  cat /Users/TIANLONGSHUMA/.ssh/id_rsa.pub<br>  <img src="https://note.youdao.com/yws/public/resource/54db4ed5313b814696c8562b10c1bcab/xmlnote/WEBRESOURCEbe8eed7251ae3adf820dcd3b43528e6a/103" alt="如下图"></p>
+<p>  复制返回的字符串到GitHub的key里面<br>  <strong>勾选Allow write access</strong><br>  <img src="https://note.youdao.com/yws/public/resource/54db4ed5313b814696c8562b10c1bcab/xmlnote/WEBRESOURCE56981990cbe0cf1baa2e37042c26c9cb/106" alt="如下图"><br>  然后添加key,到此配置就可以对该项目进行读写  </p>
+<ul>
+<li>2.点击Clone or download，点击复制链接</li>
+<li>3.打开终端 输入 git clone <a href="https://github.com/gemzhang/blockchain_blog.git" target="_blank" rel="noopener">https://github.com/gemzhang/blockchain_blog.git</a> // 刚才复制的地址，然后会将项目复制到本地</li>
+<li>4.切换到当前项目目录下，进行增删改查<br>touch text.txt<br>vim text.txt<br>然后编辑后保存</li>
+<li>5.提交修改<br>git add * //全部添加<br>git add text.txt //添加指定文件<br>git commit -m “提交描述”存放到本地暂存区<br>git status 查看提交状态<br>git push -u origin master 提交到远程仓库</li>
+<li>6.现在可以去GitHub刷新一下，查看自己提交的内容</li>
 </ul>
 
   </article>
@@ -82,12 +91,10 @@ src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
       <div id="page-prev-next">
         
         
-          <div></div> 
+          <a id="page-prev-a" href="/2018/01/26/2018-01-26-blockchain-go-config/"> ← Mac下go环境搭建 </a>
         
 
         
-        
-          <a id="page-next-a" href="/2018/01/26/2018-01-26-blockchain-github-blog/"> Mac下GitHub从零到一 → </a>
         
       </div>
     
