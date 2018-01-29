@@ -54,7 +54,7 @@ src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
       
       
   <article class="markdown-body">
-    <h2 id="post-title">”Go的多线程”
+    <h2 id="post-title">Go的多线程
        
         <div id="post-time" datetime="2018-01-26T16:00:00.000Z">
           2018-01-27
@@ -66,8 +66,8 @@ src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
 <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h3 id="并发与并行"><a href="#并发与并行" class="headerlink" title="并发与并行"></a>并发与并行</h3><p>1.并发编程：多个线程，会有时间片的分配问题，多个线程之间会有线程切换。<br>2.串行编程：根据添加线程的顺序，按照顺序一一执行  </p>
 <h3 id="并发与并行-1"><a href="#并发与并行-1" class="headerlink" title="并发与并行"></a>并发与并行</h3><p>并行是指同一时刻同时做多件事情。<br>并发是指同一时间间隔内做多件事情，同一时刻只能做一件事情。  </p>
 <h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><p>CPU有如下两种：<br>物理CPU<br>逻辑CPU<br>例如：一个物理CPU可以虚拟出多个逻辑CPU<br>8核同一时刻可以同时最多执行8个CPU命令</p>
-</blockquote>
 <h3 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a>创建线程</h3><p>1.使用go关键字创建子线程，使用sync.WaitGroup作为线程队列，控制子线程<br><img src="https://note.youdao.com/yws/public/resource/a808f261fca872d9f554baeef4208ca8/xmlnote/WEBRESOURCE042e9c0385ab5831f0a39e6fa2baef3a/243" alt="demo如图"><br>2.使用sync.Mutex加锁互斥，解决资源竞争<br><img src="https://note.youdao.com/yws/public/resource/a808f261fca872d9f554baeef4208ca8/xmlnote/WEBRESOURCEbf7a344b5a5fb876f423deabd2436ce6/244" alt="demo如图"><br>3.使用atomic原子操作，解决资源竞争<br><img src="https://note.youdao.com/yws/public/resource/a808f261fca872d9f554baeef4208ca8/xmlnote/WEBRESOURCE4d2886b2d8022d5ed3670166a2483abe/242" alt="demo如图"></p>
+</blockquote>
 
   </article>
 
