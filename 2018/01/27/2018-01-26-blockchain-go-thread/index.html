@@ -54,34 +54,20 @@ src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
       
       
   <article class="markdown-body">
-    <h2 id="post-title">Mac下GitHub从零到一
+    <h2 id="post-title">”Go的多线程”
        
-        <div id="post-time" datetime="2018-01-25T16:00:00.000Z">
-          2018-01-26
+        <div id="post-time" datetime="2018-01-26T16:00:00.000Z">
+          2018-01-27
         </div>
       
     </h2>
     <blockquote>
-<p>作者：gemzhang，区块链开发者、架构师。</p>
+<p>作者：gemzhang，区块链开发者、架构师。  </p>
+<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h3 id="并发与并行"><a href="#并发与并行" class="headerlink" title="并发与并行"></a>并发与并行</h3><p>1.并发编程：多个线程，会有时间片的分配问题，多个线程之间会有线程切换。<br>2.串行编程：根据添加线程的顺序，按照顺序一一执行  </p>
+<h3 id="并发与并行-1"><a href="#并发与并行-1" class="headerlink" title="并发与并行"></a>并发与并行</h3><p>并行是指同一时刻同时做多件事情。<br>并发是指同一时间间隔内做多件事情，同一时刻只能做一件事情。  </p>
+<h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><p>CPU有如下两种：<br>物理CPU<br>逻辑CPU<br>例如：一个物理CPU可以虚拟出多个逻辑CPU<br>8核同一时刻可以同时最多执行8个CPU命令</p>
 </blockquote>
-<h2 id="一、准备并配置"><a href="#一、准备并配置" class="headerlink" title="一、准备并配置"></a>一、准备并配置</h2><ul>
-<li><p>1.首先去GitHub官网注册账号</p>
-</li>
-<li><p>2.配置本地全局变量<br>git config –global user.email “you@example.com”<br>you@example.com是GitHub注册邮箱<br>git config –global user.name “Your Name”<br>Your Name是GitHub名字  </p>
-<h2 id="二、项目应用"><a href="#二、项目应用" class="headerlink" title="二、项目应用"></a>二、项目应用</h2></li>
-<li>1.点击右上角加号点击New repository创建仓库  </li>
-</ul>
-<p><img src="https://note.youdao.com/yws/public/resource/54db4ed5313b814696c8562b10c1bcab/xmlnote/WEBRESOURCEb57124528565f7c2a4d0d948cf744a9e/56" alt="如下图"><br>  编辑项目名称<br>  – 项目描述<br>  – 权限：公开Public（谁都可以查看），私有Private（需要收费，仅限自己<br>  – Initialize this repository with a README 添加README，可以添加使用说明让别人了解该项目<br>  – .gitignore 添加忽略文件，根据编程语言筛选使用场景<br>  – Licenses 许可证，版权保护<br>  <img src="https://note.youdao.com/yws/public/resource/54db4ed5313b814696c8562b10c1bcab/xmlnote/WEBRESOURCEa22ba187e1f879f3badd51aacccb8ae1/102" alt="如下图"></p>
-<p>  – <strong>Settings(重点)</strong> 需要配置本地公钥才能对项目进行读写<br>  打开终端输入命令<br>  ssh-keygen -t rsa -C “you@example.com”<br>  you@example.com是GitHub注册邮箱<br>  输入电脑密码<br>  复制Your public key has been saved in 后边的地址，<strong>不加最后的点</strong><br>  <img src="https://note.youdao.com/yws/public/resource/54db4ed5313b814696c8562b10c1bcab/xmlnote/WEBRESOURCE53b7c33b5cbf4d2c6db1f49e1d4d0cf8/105" alt="如下图"></p>
-<p>  然后执行命令<br>  cat /Users/TIANLONGSHUMA/.ssh/id_rsa.pub<br>  <img src="https://note.youdao.com/yws/public/resource/54db4ed5313b814696c8562b10c1bcab/xmlnote/WEBRESOURCEbe8eed7251ae3adf820dcd3b43528e6a/103" alt="如下图"></p>
-<p>  复制返回的字符串到GitHub的key里面<br>  <strong>勾选Allow write access</strong><br>  <img src="https://note.youdao.com/yws/public/resource/54db4ed5313b814696c8562b10c1bcab/xmlnote/WEBRESOURCE56981990cbe0cf1baa2e37042c26c9cb/106" alt="如下图"><br>  然后添加key,到此配置就可以对该项目进行读写  </p>
-<ul>
-<li>2.点击Clone or download，点击复制链接</li>
-<li>3.打开终端 输入 git clone <a href="https://github.com/gemzhang/blockchain_blog.git" target="_blank" rel="noopener">https://github.com/gemzhang/blockchain_blog.git</a> // 刚才复制的地址，然后会将项目复制到本地</li>
-<li>4.切换到当前项目目录下，进行增删改查<br>touch text.txt<br>vim text.txt<br>然后编辑后保存</li>
-<li>5.提交修改<br>git add * //全部添加<br>git add text.txt //添加指定文件<br>git commit -m “提交描述”存放到本地暂存区<br>git status 查看提交状态<br>git push -u origin master 提交到远程仓库</li>
-<li>6.现在可以去GitHub刷新一下，查看自己提交的内容</li>
-</ul>
+<h3 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a>创建线程</h3><p>1.使用go关键字创建子线程，使用sync.WaitGroup作为线程队列，控制子线程<br><img src="https://note.youdao.com/yws/public/resource/a808f261fca872d9f554baeef4208ca8/xmlnote/WEBRESOURCE042e9c0385ab5831f0a39e6fa2baef3a/243" alt="demo如图"><br>2.使用sync.Mutex加锁互斥，解决资源竞争<br><img src="https://note.youdao.com/yws/public/resource/a808f261fca872d9f554baeef4208ca8/xmlnote/WEBRESOURCEbf7a344b5a5fb876f423deabd2436ce6/244" alt="demo如图"><br>3.使用atomic原子操作，解决资源竞争<br><img src="https://note.youdao.com/yws/public/resource/a808f261fca872d9f554baeef4208ca8/xmlnote/WEBRESOURCE4d2886b2d8022d5ed3670166a2483abe/242" alt="demo如图"></p>
 
   </article>
 
@@ -91,10 +77,12 @@ src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
       <div id="page-prev-next">
         
         
-          <a id="page-prev-a" href="/2018/01/26/2018-01-26-blockchain-go-config/"> ← Mac下go环境搭建 </a>
+          <div></div> 
         
 
         
+        
+          <a id="page-next-a" href="/2018/01/26/2018-01-26-blockchain-go-config/"> Mac下go环境搭建 → </a>
         
       </div>
     
@@ -160,7 +148,7 @@ $(document).ready(function(){
 
 
   <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTI2MS81ODI5">
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzY0OC8xMDIwMw==">
 	<script type="text/javascript">
    (function(d, s) {
        var j, e = d.getElementsByTagName(s)[0];
