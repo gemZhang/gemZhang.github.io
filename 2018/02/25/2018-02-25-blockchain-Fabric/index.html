@@ -62,9 +62,9 @@ src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
       
     </h2>
     <blockquote>
-<p>作者：gemzhang，区块链开发者、架构师。   </p>
-<h1 id="Mac下Hyperledger-Faric-v1-0-0-的环境搭建"><a href="#Mac下Hyperledger-Faric-v1-0-0-的环境搭建" class="headerlink" title="Mac下Hyperledger Faric v1.0.0 的环境搭建"></a>Mac下Hyperledger Faric v1.0.0 的环境搭建</h1><h2 id="1-下载安装Docker"><a href="#1-下载安装Docker" class="headerlink" title="1.下载安装Docker"></a>1.下载安装Docker</h2></blockquote>
-<p><a href="https://store.docker.com/editions/community/docker-ce-desktop-mac" target="_blank" rel="noopener">https://store.docker.com/editions/community/docker-ce-desktop-mac</a></p>
+<p>作者：gemzhang，区块链开发者、架构师   </p>
+</blockquote>
+<h2 id="1-下载安装Docker"><a href="#1-下载安装Docker" class="headerlink" title="1.下载安装Docker"></a>1.下载安装Docker</h2><p><a href="https://store.docker.com/editions/community/docker-ce-desktop-mac" target="_blank" rel="noopener">https://store.docker.com/editions/community/docker-ce-desktop-mac</a></p>
 <p>下载完毕直接双击安装<br><img src="https://note.youdao.com/yws/public/resource/a808f261fca872d9f554baeef4208ca8/xmlnote/WEBRESOURCE99026e513aa8aaa8ba143a0c9201cc61/300" alt="">  </p>
 <p>测试是都安装成功</p>
 <pre><code>docker version   
@@ -81,7 +81,7 @@ docker-compose version
 <pre><code>git tag
 </code></pre><p>切换版本到v1.0.0   </p>
 <pre><code>git checkout v1.0.0
-</code></pre><h2 id="Fabric-Docker镜像的下载"><a href="#Fabric-Docker镜像的下载" class="headerlink" title="Fabric Docker镜像的下载"></a>Fabric Docker镜像的下载</h2><p>切换到路径</p>
+</code></pre><h2 id="4-Fabric-Docker镜像的下载"><a href="#4-Fabric-Docker镜像的下载" class="headerlink" title="4.Fabric Docker镜像的下载"></a>4.Fabric Docker镜像的下载</h2><p>切换到路径</p>
 <pre><code>cd ~/go/src/github.com/hyperledger/fabric/examples/e2e_cli/
 </code></pre><p>下载镜像   </p>
 <pre><code>source download-dockerimages.sh -c x86_64-1.0.0 -f x86_64-1.0.0
